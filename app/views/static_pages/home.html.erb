@@ -1,0 +1,105 @@
+<div class="rev-slider">
+  <div class="fullwidthbanner-container">
+    <div class="fullwidthbanner">
+      <div class="bannercontainer" >
+        <div class="banner" >
+          <%= image_tag "banner.jpg", width: "100%" %>
+        </div>
+      </div>
+
+        <div class="tp-bannertimer"></div>
+      </div>
+    </div>
+    <!--slider-->
+  </div>
+  <div class="container">
+    <div id="content" class="space-top-none">
+      <div class="main-content">
+        <div class="space60">&nbsp;</div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="beta-products-list">
+              <h4><%= t ".food" %></h4>
+              <div class="beta-products-details">
+                <p class="pull-left"><%= @food_count %> styles found</p>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="row">
+              <% if @food_product.any? %>
+              <% @food_product.each do |food| %>
+                <div class="col-sm-3" style="margin-bottom: 50px">
+                  <div class="single-item">
+                    <div class="single-item-header">
+                      <%= link_to image_tag(food.picture) %>
+                    </div>
+                    <div class="single-item-body">
+                      <p class="single-item-title"><%= food.name %></p>
+                      <p class="single-item-price">
+                        <span><%= food.price %> <%= t ".vnd" %></span>
+                      </p>
+                    </div>
+                    <div class="single-item-caption">
+                      <%= link_to "#" , class: "add-to-cart pull-left" do %>
+                        <i class="fa fa-shopping-cart"></i>
+                      <% end %>
+                      <%= link_to "#", class: "beta-btn primary" do %>
+                        <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
+                      <% end %>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+                <% else %>
+                  <p class="alert alert-danger text-center"><%= t "no_item" %></p>
+                <% end %>
+              </div>
+              <%= paginate @food_product, :param_name => "food_page", theme: 'twitter-bootstrap-3' %>
+            </div> <!-- .beta-products-list -->
+
+            <div class="space50">&nbsp;</div>
+
+            <div class="beta-products-list">
+              <h4><%= t  ".drink" %></h4>
+              <div class="beta-products-details">
+                <p class="pull-left"><%= @drink_count %> <%= t ".found" %></p>
+                <div class="clearfix"></div>
+              </div>
+              <div class="row">
+              <% if @drink_product.any? %>
+              <% @drink_product.each do |drink| %>
+                <div class="col-sm-3" style="margin-bottom: 50px">
+                  <div class="single-item">
+                    <div class="single-item-header">
+                      <%= link_to image_tag(drink.picture) %>
+                    </div>
+                    <div class="single-item-body">
+                      <p class="single-item-title"><%= drink.name %></p>
+                      <p class="single-item-price">
+                        <span><%= drink.price %> <%= t ".vnd" %></span>
+                      </p>
+                    </div>
+                    <div class="single-item-caption">
+                      <%= link_to "#" , class: "add-to-cart pull-left" do %>
+                        <i class="fa fa-shopping-cart"></i>
+                      <% end %>
+                      <%= link_to "#", class: "beta-btn primary" do %>
+                        <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
+                      <% end %>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+              <%end%>
+              <% else %>
+                <p class="alert alert-danger text-center"><%= t "no_item" %></p>
+              <% end %>
+              </div>
+              <%= paginate @drink_product, :param_name => "drink_page", theme: 'twitter-bootstrap-3' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

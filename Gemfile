@@ -5,6 +5,8 @@ ruby "2.5.0"
 
 gem "rails", "~> 5.2.3"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
+gem "bootstrap-sass"
+gem "jquery-rails"
 gem "puma", "~> 3.11"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
@@ -15,6 +17,9 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "faker"
 gem "devise"
 gem "config"
+gem "font-awesome-rails"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
