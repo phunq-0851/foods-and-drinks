@@ -1,0 +1,32 @@
+<tr class="cart_item">
+  <td class="product-name">
+    <div class="media">
+      <%= link_to product_path(od.product_id) do %>
+      <%= image_tag od.product_picture, class: "pull-left", width: "100px" %>
+      <% end %>
+      <div class="media-body">
+        <p class="font-large table-title"><%= od.product_name %></p>
+      </div>
+    </div>
+  </td>
+  <td class="product-price">
+    <span class="amount"><%= od.price %> <%= t ".vnd" %></span>
+  </td>
+  <td class="product-status">
+    <%= t ".instock" %>
+  </td>
+  <td class="product-quantity">
+    <%= form_tag cart_path(product_id: od.product_id, id: od.product_id), method: :patch do %>
+    <%= number_field_tag :quantity, od.quantity %>
+    <%= button_tag t(".edit"), type: "submit", class: "btn btn-success" %>
+    <% end %>
+  </td>
+  <td class="product-subtotal">
+    <span class="amount"><%= calc_total od.quantity, od.price %></span>
+  </td>
+  <td class="product-remove">
+    <%= link_to cart_path(od.product_id), method: :delete, data: { confirm: t(".sure") } do %>
+    <i class="fa fa-trash", style="font-size: 20px"></i>
+    <% end %>
+  </td>
+</tr>

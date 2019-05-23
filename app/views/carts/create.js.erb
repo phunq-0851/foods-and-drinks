@@ -1,0 +1,7 @@
+jQuery(document).ready(function ($) {
+  $('span.cart-size').text("(<%= current_cart %>)");
+  $('.alert').addClass('alert-success').text('<%= flash[:success] %>').slideDown();
+  setTimeout(function() {
+      $(".alert").fadeOut(2000);
+    }, 3000);
+});

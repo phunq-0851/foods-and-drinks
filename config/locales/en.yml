@@ -6,7 +6,7 @@ en:
       account: Tài khoản
       signup: Đăng kí
       signin: Đăng nhập
-      cart: Giỏ hàng (Trống)
+      cart: Giỏ hàng
       order: Đặt hàng
       total: Tổng tiền
       menu: Menu
@@ -15,6 +15,9 @@ en:
       about: Giới thiệu
       contact: Liên hệ
       logout: Log out
+      viewcart: View Cart
+      no-item: No item in your cart
+      vnd: VND
     footer:
       insta: Instagram Feed
       infor: Information
@@ -62,6 +65,7 @@ en:
       best: Best Sellers
       new: New Products
       no-item: Not have product yet
+      addtocart: Add to cart
   category:
     show:
       no-item: Not have product yet
@@ -71,3 +75,28 @@ en:
       top: Top Products
       found: styles found
       not-found: Not exists this category
+  carts:
+    index:
+      title: Shopping Cart
+      home: Home
+      product: Product
+      price: Price
+      status: Status
+      quantity: Quantity
+      total: Total
+      remove: Remove
+      edit: Edit
+      instock: Pending
+      no-item: No item in your cart
+      vnd: VND
+      checkout: Check out
+      cart-total: Cart Subtotal
+      ship: Shipping
+      free: Free Shipping
+      sure: Are you sure?
+  controllers:
+    users:
+      invalid_quantity: Invalid quantity
+      add_cart: Add to cart success
+      cannot_found: Not found
+

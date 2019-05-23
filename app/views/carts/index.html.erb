@@ -1,0 +1,58 @@
+<div class="inner-header">
+    <div class="container">
+      <div class="pull-left">
+        <h6 class="inner-title"><%= t ".title" %></h6>
+      </div>
+      <div class="pull-right">
+        <div class="beta-breadcrumb font-large">
+          <%= link_to t(".home") , root_path %> / <span><%= t ".title" %></span>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="content">
+      <% flash.each do |key, value| %>
+      <div class="row">
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      </div>
+    <% end %>
+      <div class="table-responsive">
+      <% if @order_details.any? %>
+        <table class="shop_table beta-shopping-cart-table" cellspacing="0">
+          <thead>
+            <tr>
+              <th class="product-name"><%= t ".product" %></th>
+              <th class="product-price"><%= t ".price" %></th>
+              <th class="product-status"><%= t ".status" %></th>
+              <th class="product-quantity"><%= t ".quantity" %></th>
+              <th class="product-subtotal"><%= t ".total" %></th>
+              <th class="product-remove"><%= t ".remove" %></th>
+            </tr>
+          </thead>
+          <tbody>
+          <%= render partial: "table_cart", collection: @order_details, as: :od %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="6" class="actions">
+                <%= link_to t(".checkout"), "#" , class: "beta-btn primary", id: "checkout" %>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="cart-totals pull-right">
+          <div class="cart-totals-row"><h5 class="cart-total-title"><%= t ".cart-total" %></h5></div>
+          <div class="cart-totals-row"><span><%= t ".cart-total" %></span> <span><%= total %></span></div>
+          <div class="cart-totals-row"><span><%= t ".ship" %></span> <span><%= t ".free" %></span></div>
+          <div class="cart-totals-row"><span><%= t ".total" %></span> <span><%= total %></span></div>
+        </div>
+        <% else %>
+        <p class="alert alert-danger"><%= t ".no-item" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>

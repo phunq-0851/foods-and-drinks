@@ -40,60 +40,16 @@
 
           <div class="beta-comp">
             <div class="cart">
-              <div class="beta-select"><i class="fa fa-shopping-cart"></i> <%= t ".cart" %> <i class="fa fa-chevron-down"></i></div>
-              <div class="beta-dropdown cart-body">
-                <div class="cart-item">
-                  <div class="media">
-                    <a class="pull-left" href="#"><%= image_tag "1.jpg" %></a>
-                    <div class="media-body">
-                      <span class="cart-item-title">Sample Woman Top</span>
-                      <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                      <span class="cart-item-amount">1*<span>$49.50</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cart-item">
-                  <div class="media">
-                    <a class="pull-left" href="#"><%= image_tag "2.jpg" %></a>
-                    <div class="media-body">
-                      <span class="cart-item-title">Sample Woman Top</span>
-                      <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                      <span class="cart-item-amount">1*<span>$49.50</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cart-item">
-                  <div class="media">
-                    <a class="pull-left" href="#"><%= image_tag "3.jpg" %></a>
-                    <div class="media-body">
-                      <span class="cart-item-title">Sample Woman Top</span>
-                      <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                      <span class="cart-item-amount">1*<span>$49.50</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cart-caption">
-                  <div class="cart-total text-right"><%= t ".total" %> <span class="cart-total-value">$34.55</span></div>
-                  <div class="clearfix"></div>
-
-                  <div class="center">
-                    <div class="space10">&nbsp;</div>
-                    <a href="checkout.html" class="beta-btn primary text-center"><%= t ".order" %> <i class="fa fa-chevron-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div> <!-- .cart -->
+              <%= link_to carts_path do %>
+              <i class="fa fa-shopping-cart"></i> <%= t ".cart" %> <span class="cart-size text-danger">(<%= current_cart %>)</span>
+              <% end %>
           </div>
         </div>
         <div class="clearfix"></div>
-      </div> <!-- .container -->
-    </div> <!-- .header-body -->
+      </div>
+    </div>
     <div class="header-bottom" style="background-color: #0277b8;">
       <div class="container">
-        <!-- <a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a> -->
         <%= link_to "#", class: "visible-xs beta-menu-toggle pull-right" do %>
           <span class='beta-menu-toggle-text'><%= t ".menu" %></span> <i class="fa fa-bars"></i>
         <% end %>
