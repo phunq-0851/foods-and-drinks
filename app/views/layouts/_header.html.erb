@@ -9,9 +9,14 @@
         </div>
         <div class="pull-right auto-width-right">
           <ul class="top-details menu-beta l-inline">
+          <% if user_signed_in? %>
+            <li><%= link_to "#" do %><i class="fa fa-user"></i><%= current_user.email %><% end %></li>
+             <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-user"></i><%= t ".logout" %><% end %></li>
+          <% else %>
             <li><a href="#"><i class="fa fa-user"></i><%= t ".account" %></a></li>
-            <li><a href="#"><%= t ".signup" %></a></li>
-            <li><a href="#"><%= t ".signin" %></a></li>
+            <li><%= link_to t(".signup"), new_user_registration_path %></li>
+            <li><%= link_to t(".signin"), new_user_session_path %></li>
+            <% end %>
           </ul>
         </div>
         <div class="clearfix"></div>

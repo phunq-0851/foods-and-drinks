@@ -14,6 +14,7 @@ en:
       category: Sản phẩm
       about: Giới thiệu
       contact: Liên hệ
+      logout: Log out
     footer:
       insta: Instagram Feed
       infor: Information
@@ -37,4 +38,17 @@ en:
       no_item: Khong co san pham
       vnd: VND
       found:  products found
-
+  devise:
+    sessions:
+      new:
+        login: Log in
+        account: If you don't have account, Please
+        signup: Sign up
+        google: Login with Google
+        email: email
+        password: current-password
+        login: Log in
+    registrations:
+      new:
+        login: Login
+        signup: Sign up

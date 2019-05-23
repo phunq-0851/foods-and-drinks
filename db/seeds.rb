@@ -23,3 +23,5 @@ end
   category_id = 2
   Product.create!(name: name, describe: describe, quantity: quantity, price: price, picture: picture, category_id: category_id)
 end
+
+User.create!(username: "Quang Phu", email: "quangphunguyen@gmail.com", password: "123456", password_confirmation: "123456", is_admin: true)
