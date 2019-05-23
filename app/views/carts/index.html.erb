@@ -39,7 +39,11 @@
           <tfoot>
             <tr>
               <td colspan="6" class="actions">
-                <%= link_to t(".checkout"), "#" , class: "beta-btn primary", id: "checkout" %>
+              <% if user_signed_in? %>
+                <%= link_to t(".checkout"), checkout_path , class: "beta-btn primary", id: "checkout" %>
+                <% else %>
+                <p class="text-danger"><%= t ".please" %></p>
+                <% end %>
               </td>
             </tr>
           </tfoot>

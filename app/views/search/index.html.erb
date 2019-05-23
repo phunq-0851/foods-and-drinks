@@ -1,0 +1,45 @@
+<div class="container">
+    <div id="content" class="space-top-none">
+      <div class="main-content">
+        <div class="space60">&nbsp;</div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="beta-products-list">
+              <h4><%= t ".product" %></h4>
+              <div class="beta-products-details">
+                <p class="pull-left"><%= @products.size %> <%= t ".found" %></p>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="row">
+              <% if @products.any? %>
+              <% @products.each do |product| %>
+                <div class="col-sm-3" style="margin-bottom: 50px">
+                  <div class="single-item">
+                    <div class="single-item-header">
+                      <%= link_to image_tag(product.picture.url, height: "197px", width: "263px"), product_path(product) %>
+                    </div>
+                    <div class="single-item-body">
+                      <p class="single-item-title"><%= product.name %></p>
+                      <p class="single-item-price">
+                        <span><%= product.price %> <%= t ".vnd" %></span>
+                      </p>
+                    </div>
+                    <div class="single-item-caption">
+                    <%= link_to product_path(product), class: "beta-btn primary" do %>
+                      <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
+                    <% end %>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="space50">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

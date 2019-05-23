@@ -1,11 +1,14 @@
+<%= render "carts/cart_success" %>
 <div class="container">
     <div id="content">
       <div class="row">
       <% flash.each do |key, value| %>
       <div class="row">
+      <% if key=="danger" %>
         <div class="alert alert-<%= key %>">
           <%= value %>
         </div>
+        <% end %>
       </div>
     <% end %>
       <% if @product %>
@@ -14,9 +17,10 @@
           <div class="row">
             <p class="alert"></p>
             <div class="col-sm-4">
-              <%= image_tag @product.picture %>
+              <%= image_tag @product.picture.url %>
             </div>
             <div class="col-sm-8">
+            <%= social_share_button_tag(@product.name, desc: @product.name) %>
               <div class="single-item-body">
                 <p class="single-item-title"><%= @product.name %></p>
                 <p class="single-item-price">
@@ -29,6 +33,13 @@
               <div class="single-item-desc">
                 <p><%= @product.describe %></p>
               </div>
+              <div class="single-item-desc">
+              <% if @product.quantity > 0 %>
+                <p class="text-danger" style="font-weight: bold"><%= t ".quantity" %>: <%= @product.quantity %></p>
+              <% else %>
+                <p class="text-danger" style="font-weight: bold"><%= t ".outofstock" %></p>
+              <% end %>
+              </div>
               <div class="space20">&nbsp;</div>
               <div class="single-item-options">
               <%= form_with url: carts_path, method: :post, remote: true do |f| %>
@@ -37,28 +48,22 @@
                 <%= f.hidden_field :product_id, value: @product.id %>
                 <%= f.hidden_field :price, value: @product.price %>
                 <br>
+                <% if @product.quantity > 0 %>
                 <%= f.submit t(".addtocart"), class: "btn btn-success" %>
+                <% else %>
+                <%= f.submit t(".addtocart"), class: "btn btn-success", disabled: :disabled %>
+                <% end %>
               <% end %>
 
                 <div class="clearfix"></div>
               </div>
-
             </div>
           </div>
 
           <div class="space40">&nbsp;</div>
           <div class="woocommerce-tabs">
-            <ul class="tabs">
-              <li><%= link_to t(".des"), "#tab-description" %></li>
-              <li><%= link_to t(".review"), "#tab-reviews" %></li>
-            </ul>
-
-            <div class="panel" id="tab-description">
-              <p><%= @product.describe %></p>
-            </div>
-            <div class="panel" id="tab-reviews">
-              <p>No Reviews</p>
-            </div>
+              <p><%= t(".review") %></p>
+              <div class="fb-comments" data-href="http://localhost:3000/" data-width="700" data-numposts="5"></div>
           </div>
           <div class="space50">&nbsp;</div>
           <div class="beta-products-list">
@@ -70,7 +75,7 @@
               <div class="col-sm-4" style="margin-bottom: 50px">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <%= link_to image_tag(pr.picture), product_path(pr) %>
+                    <%= link_to image_tag(pr.picture.url, height: "197px", width: "263px"), product_path(pr) %>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title"><%= pr.name %></p>
@@ -99,7 +104,7 @@
             <div class="widget-body">
               <div class="beta-sales beta-lists">
                 <div class="media beta-sales-item">
-                  <%= link_to image_tag(pt.picture), product_path(pt) %>
+                  <%= link_to image_tag(pt.picture.url), product_path(pt) %>
                   <div class="media-body">
                     <%= pt.name %>
                     <span class="beta-sales-price"><%= pt.price %> <%= t ".vnd" %></span>
@@ -119,7 +124,7 @@
             <div class="widget-body">
               <div class="beta-sales beta-lists">
                 <div class="media beta-sales-item">
-                  <%= link_to image_tag(pn.picture), product_path(pn) %>
+                  <%= link_to image_tag(pn.picture.url), product_path(pn) %>
                   <div class="media-body">
                     <%= pn.name %>
                     <span class="beta-sales-price"><%= pn.price %> <%= t ".vnd" %></span>

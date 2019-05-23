@@ -1,4 +1,3 @@
 class Rating < ApplicationRecord
-  validates :name, presence: true
-  validates :describe, presence: true
+  validates :rate, presence: true, numericality: true
 end

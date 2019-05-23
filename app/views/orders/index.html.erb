@@ -1,0 +1,64 @@
+<div class="inner-header">
+    <div class="container">
+      <div class="pull-left">
+        <h6 class="inner-title"><%= t ".history" %></h6>
+      </div>
+      <div class="pull-right">
+        <div class="beta-breadcrumb font-large">
+          <a href="index.html"><%= t ".home" %></a> / <span><%= t ".history" %></span>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="content">
+      <% flash.each do |key, value| %>
+      <div class="row">
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      </div>
+      <% end %>
+      <div class="table-responsive">
+        <% if @orders.any? %>
+        <table class="shop_table beta-shopping-cart-table" cellspacing="0">
+          <thead>
+            <tr>
+              <th class="product-subtotal"><%= t ".total" %></th>
+              <th class="product-status"><%= t ".status" %></th>
+              <th class="product-subtotal"><%= t ".create" %></th>
+              <th class="product-subtotal"><%= t ".see" %></th>
+              <th class="product-subtotal"><%= t ".remove" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+            <tr class="cart_item">
+              <td class="product-price">
+                <span class="amount"><%= order.total %></span>
+              </td>
+              <td class="product-status">
+                <%= order.status %>
+              </td>
+              <td class="product-status">
+                <%= order.created_at %>
+              </td>
+              <td class="product-subtotal">
+                <span class="amount"><%= link_to t(".see") ,order_order_details_path(order_id: order.id) %></span>
+              </td>
+              <td class="product-subtotal">
+                <%= link_to order_path(order), method: :delete, data: {confirm: t(".sure")} do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% else %>
+          <p class="alert alert-danger"><%= t ".no-buy" %></p>
+        <% end %>
+      </div>
+      <%= paginate @orders, theme: "twitter-bootstrap-3" %>
+  </div>

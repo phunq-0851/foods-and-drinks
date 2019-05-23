@@ -1,0 +1,140 @@
+2019-06-18 23:23:18[WARN] user: quangphu
+GET /admin/category?_pjax=%5Bdata-pjax-container%5D
+USE eager loading detected
+  Category => [:products]
+  Add to your finder: :includes => [:products]
+Call stack
+
+2019-06-18 23:23:22[WARN] user: quangphu
+GET /admin/product?_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  Product => [:category]
+  Remove from your finder: :includes => [:category]
+Call stack
+
+2019-06-18 23:23:31[WARN] user: quangphu
+GET /admin/product?model_name=product&set=1&_pjax=%5Bdata-pjax-container%5D
+USE eager loading detected
+  Product => [:order_details]
+  Add to your finder: :includes => [:order_details]
+Call stack
+
+2019-06-18 23:23:37[WARN] user: quangphu
+GET /admin/product?model_name=product&_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  Product => [:category]
+  Remove from your finder: :includes => [:category]
+Call stack
+
+2019-06-18 23:24:08[WARN] user: quangphu
+GET /admin/product?model_name=product
+AVOID eager loading detected
+  Product => [:category]
+  Remove from your finder: :includes => [:category]
+Call stack
+
+2019-06-18 23:25:54[WARN] user: quangphu
+GET /admin/order_detail/15/edit?_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  Order => [:user]
+  Remove from your finder: :includes => [:user]
+Call stack
+
+2019-06-18 23:25:54[WARN] user: quangphu
+GET /admin/order_detail/15/edit?_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  Product => [:category]
+  Remove from your finder: :includes => [:category]
+Call stack
+
+2019-06-18 23:26:26[WARN] user: quangphu
+GET /admin/order_detail/15/edit?_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  Order => [:user]
+  Remove from your finder: :includes => [:user]
+Call stack
+
+2019-06-18 23:26:26[WARN] user: quangphu
+GET /admin/order_detail/15/edit?_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  Product => [:category]
+  Remove from your finder: :includes => [:category]
+Call stack
+
+2019-06-18 23:26:41[WARN] user: quangphu
+GET /admin/product/new?modal=true
+AVOID eager loading detected
+  OrderDetail => [:order, :product]
+  Remove from your finder: :includes => [:order, :product]
+Call stack
+
+2019-06-18 23:26:46[WARN] user: quangphu
+GET /admin/product/3/edit?modal=true
+AVOID eager loading detected
+  OrderDetail => [:order, :product]
+  Remove from your finder: :includes => [:order, :product]
+Call stack
+
+2019-06-18 23:26:57[WARN] user: quangphu
+GET /admin/product/3/edit?modal=true
+AVOID eager loading detected
+  OrderDetail => [:order, :product]
+  Remove from your finder: :includes => [:order, :product]
+Call stack
+
+2019-06-18 23:27:06[WARN] user: quangphu
+GET /admin/order/7/edit?modal=true
+AVOID eager loading detected
+  OrderDetail => [:order]
+  Remove from your finder: :includes => [:order]
+Call stack
+
+2019-06-18 23:27:06[WARN] user: quangphu
+GET /admin/order/7/edit?modal=true
+AVOID eager loading detected
+  Product => [:category]
+  Remove from your finder: :includes => [:category]
+Call stack
+
+2019-06-18 23:27:25[WARN] user: quangphu
+GET /admin/order/7/edit?_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  OrderDetail => [:order]
+  Remove from your finder: :includes => [:order]
+Call stack
+
+2019-06-18 23:27:25[WARN] user: quangphu
+GET /admin/order/7/edit?_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  Product => [:category]
+  Remove from your finder: :includes => [:category]
+Call stack
+
+2019-06-18 23:27:33[WARN] user: quangphu
+GET /admin/product?_pjax=%5Bdata-pjax-container%5D
+AVOID eager loading detected
+  Product => [:category]
+  Remove from your finder: :includes => [:category]
+Call stack
+
+2019-06-18 23:27:35[WARN] user: quangphu
+GET /admin/category?_pjax=%5Bdata-pjax-container%5D
+USE eager loading detected
+  Category => [:products]
+  Add to your finder: :includes => [:products]
+Call stack
+
+2019-06-18 23:27:44[WARN] user: quangphu
+GET /admin/category
+USE eager loading detected
+  Category => [:products]
+  Add to your finder: :includes => [:products]
+Call stack
+
+2019-06-18 23:28:53[WARN] user: quangphu
+GET /admin/category
+USE eager loading detected
+  Category => [:products]
+  Add to your finder: :includes => [:products]
+Call stack
+

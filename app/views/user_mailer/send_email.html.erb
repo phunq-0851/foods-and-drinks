@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= t ".dear" %> <%= @username %></h1>
+    <h2><%= t ".thank" %></h2>
+    <table border="1" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="text-align: center; padding: 12px 30px;"><%= t ".name" %></td>
+        <td style="text-align: center; padding: 12px 36px;"><%= t ".quantity" %></td>
+        <td style="text-align: center; padding: 12px 30px;"><%= t ".price" %></td>
+      </tr>
+      <% if @shopping_cart %>
+        <% @shopping_cart.each do |item| %>
+      <tr style="text-align: center;">
+
+          <% @product.each do |p| %>
+            <% if p.id == item["product_id"] %>
+              <td style="text-align: center; padding: 12px 30px;"><%= link_to product_url p.id do %><%= p.name %><% end %></td>
+            <%end%>
+          <%end%>
+          <td style="text-align: center; padding: 12px 30px;"><%= item["quantity"] %></td>
+          <td style="text-align: center; padding: 12px 30px;"><%= item["price"] %></td>
+      </tr>
+      <% end %>
+      <% end %>
+      <tr>
+        <td colspan="3" style="text-align: center; padding: 12px 30px;"><%= t  ".total" %> <%= @total %></td>
+      </tr>
+    </table>
+    <h2><%= t ".thank_shopping" %></h2>
+    <h2><%= link_to t(".check"), root_url %></h2>
+  </body>
+</html>

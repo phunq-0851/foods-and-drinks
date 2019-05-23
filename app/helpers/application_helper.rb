@@ -11,5 +11,12 @@ module ApplicationHelper
 
   def current_order
     session[:shopping_cart] ||= []
+    total = 0;
+    if session[:shopping_cart]
+      session[:shopping_cart].each do |item|
+        total = total + item["quantity"]*item["price"]
+      end
+    end
+    total
   end
 end

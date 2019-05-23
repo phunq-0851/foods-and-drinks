@@ -2,6 +2,7 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
+//= require jquery.js
 //= require jquery-ui-1.10.4.custom.min.js
 //= require bootstrap.min.js
 //= require jquery.bxslider.min.js
@@ -16,4 +17,5 @@
 //= require custom2.js
 //= require custom.js
 //= require activestorage
+//= require social-share.js
 //= require_tree

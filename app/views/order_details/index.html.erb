@@ -1,0 +1,60 @@
+<div class="inner-header">
+    <div class="container">
+      <div class="pull-left">
+        <h6 class="inner-title"><%= t ".detail" %></h6>
+      </div>
+      <div class="pull-right">
+        <div class="beta-breadcrumb font-large">
+          <a href="index.html"><%= t ".home" %></a> / <span><%= t ".detail" %></span>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="content">
+
+      <div class="table-responsive">
+        <% if @order_details.any? %>
+        <table class="shop_table beta-shopping-cart-table" cellspacing="0">
+          <thead>
+            <tr>
+              <th class="product-name"><%= t ".product" %></th>
+              <th class="product-price"><%= t ".price" %></th>
+              <th class="product-quantity"><%= t ".qty" %>.</th>
+              <th class="product-subtotal"><%= t ".total" %></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @order_details.each do |od| %>
+            <tr class="cart_item">
+              <td class="product-name">
+                <div class="media">
+                  <%= link_to product_path(od.product_id) do %>
+                    <%= image_tag od.product.picture.url, class: "pull-left", width: "100px" %>
+                  <% end %>
+                  <div class="media-body">
+                    <p class="font-large table-title"><%= od.product.name %></p>
+                  </div>
+                </div>
+              </td>
+              <td class="product-price">
+                <span class="amount"><%= od.price %></span>
+              </td>
+              <td class="product-quantity">
+                <span class="amount"><%= od.quantity %></span>
+              </td>
+              <td class="product-subtotal">
+                <span class="amount"><%= od.price*od.quantity %></span>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @order_details, theme: 'twitter-bootstrap-3' %>
+        <% else %>
+          <p class="alert alert-danger"><%= t ".no-buy" %></p>
+        <% end %>
+      </div>
+  </div>

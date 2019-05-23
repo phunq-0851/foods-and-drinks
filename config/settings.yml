@@ -2,6 +2,7 @@ minimum_category: 5
 minimum_product: 5
 paginate:
   maximum_page: 8
+  per_page: 5
 category:
   food: 1
   drink: 2

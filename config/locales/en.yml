@@ -18,6 +18,9 @@ en:
       viewcart: View Cart
       no-item: No item in your cart
       vnd: VND
+      history: History Cart
+      admin: Admin Page
+      suggest: Suggest food & drink
     footer:
       insta: Instagram Feed
       infor: Information
@@ -41,6 +44,17 @@ en:
       no_item: Khong co san pham
       vnd: VND
       found:  products found
+    checkout:
+      order: Đặt hàng
+      home: Trang chủ
+      name: Họ tên*
+      email: Email*
+      phone: Địa chỉ*
+      address: Điện thoại*
+      your-order: Đơn hàng của bạn
+      total: Tổng tiền
+      quantity: Quantity
+      vnd: VND
   devise:
     sessions:
       new:
@@ -55,6 +69,18 @@ en:
       new:
         login: Login
         signup: Sign up
+      edit:
+        edit: Edit
+        leave: (leave blank if you don't want to change it)
+        email: Email
+        new-password: new-password
+        minimum: characters minimum
+        current-password: current-password
+        update: Update
+        back: Back
+        cancel: Cancel my account
+        sure: Are you sure
+        unhappy: Unhappy?
   products:
     show:
       des: Description
@@ -66,6 +92,8 @@ en:
       new: New Products
       no-item: Not have product yet
       addtocart: Add to cart
+      outofstock: Out of stock
+      quantity: Quantity
   category:
     show:
       no-item: Not have product yet
@@ -94,9 +122,71 @@ en:
       ship: Shipping
       free: Free Shipping
       sure: Are you sure?
+      please: Please log in to checkout
   controllers:
     users:
       invalid_quantity: Invalid quantity
       add_cart: Add to cart success
       cannot_found: Not found
-
+      please: Sign in to checkout
+  controllers:
+    users:
+      invalid_quantity: Invalid quantity
+      order_success: Dat hang thanh cong
+      order_fail: Khong thanh cong
+      suggest_succ: Your suggest is sent to admin
+      suggest_fail: Suggest fail
+      not-found: Not found
+      delete_succ: Delete success
+      delete_fail: Delete fail
+      cannot_delete: Cannot delete this order because it is processing
+      no-item: Not have product yet
+  orders:
+    index:
+      total: Total
+      status: Status
+      create: Created_at
+      see: Detail
+      remove: Remove
+      no-buy: Ban chua mua san pham nao
+      history: History
+      home: Home
+      sure: Your sure
+  order_details:
+    index:
+      home: Home
+      detail: Detail order
+      product: Product
+      price: Price
+      qty: Qty
+      total: Total
+      remove: Remove
+      no-buy: Ban chua mua san pham nao
+      vnd: VND
+  user_mailer:
+    send_email:
+      dear: Dear
+      thank: Thank you for your order, your items
+      name: Name
+      quantity: Quantity
+      price: Price
+      thank_shopping: Thanks for shopping with Food and Drink
+      total: Total
+      check: Please visit my webiste
+  search:
+    index:
+      vnd: VND
+      product: Products
+      found: styles found
+  suggests:
+    new:
+      suggest: Suggest food and drink to admin
+      history: History Suggest
+    index:
+      history: History Suggest
+      name: Name
+      describe: Describe
+      created_at: Created_at
+      action: Action
+      no-item: Not have suggest yet
+      sure: You sure?

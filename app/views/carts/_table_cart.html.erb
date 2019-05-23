@@ -2,7 +2,7 @@
   <td class="product-name">
     <div class="media">
       <%= link_to product_path(od.product_id) do %>
-      <%= image_tag od.product_picture, class: "pull-left", width: "100px" %>
+      <%= image_tag od.product_picture.url, class: "pull-left", width: "100px" %>
       <% end %>
       <div class="media-body">
         <p class="font-large table-title"><%= od.product_name %></p>
@@ -25,7 +25,7 @@
     <span class="amount"><%= calc_total od.quantity, od.price %></span>
   </td>
   <td class="product-remove">
-    <%= link_to cart_path(od.product_id), method: :delete, data: { confirm: t(".sure") } do %>
+    <%= link_to cart_path(od.product_id), method: :delete, data: { confirm: t("carts.index.sure") } do %>
     <i class="fa fa-trash", style="font-size: 20px"></i>
     <% end %>
   </td>

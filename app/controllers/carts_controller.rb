@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   before_action :load_product, only: %i(destroy update)
 
   def index
+    current_order
     @order_details = []
     session[:shopping_cart].each do |item|
       @order_details << OrderDetail.new(item)
@@ -10,19 +11,21 @@ class CartsController < ApplicationController
   end
 
   def create
+    current_order
+    @product = Product.find_by id: params[:product_id]
     order_detail = OrderDetail.new item_params
     result = find_product_in_cart order_detail.product_id
-    if order_detail.quantity < 0 || order_detail.quantity > Settings.cart.limit
-      flash[:danger] = t "controllers.users.invalid_quantity"
+    if order_detail.quantity < 0 || order_detail.quantity > @product.quantity
+      flash[:danger] = "Quantity invalid"
       redirect_to product_path order_detail.product_id
     elsif result
       result["quantity"] = result["quantity"] + order_detail.quantity
     else
       session[:shopping_cart] << order_detail
-      flash[:success] = t "controllers.users.add_cart"
-      respond_to do |format|
-        format.js
-      end
+    end
+    flash[:success] = "Add to cart success"
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -40,6 +43,9 @@ class CartsController < ApplicationController
     else
       result = find_product_in_cart @product.id
       result["quantity"] = quantity
+      if result["quantity"] == 0
+        session[:shopping_cart].delete(result)
+      end
     end
     redirect_to carts_path
   end
@@ -64,5 +70,4 @@ class CartsController < ApplicationController
     flash[:danger] = t "controllers.users.cannot_found"
     redirect_to carts_path
   end
-
 end

@@ -26,11 +26,11 @@
 
               <div class="row">
               <% if @product_new.any? %>
-                <% @product_new.each do |pn| %>
+              <% @product_new.each do |pn| %>
                 <div class="col-sm-3" style="margin-bottom: 50px">
                   <div class="single-item">
                     <div class="single-item-header">
-                      <%= link_to image_tag(pn.picture) %>
+                      <%= link_to image_tag(pn.picture.url, height: "197px", width: "263px") %>
                     </div>
                     <div class="single-item-body">
                       <p class="single-item-title"><%= pn.name %></p>
@@ -39,9 +39,6 @@
                       </p>
                     </div>
                     <div class="single-item-caption">
-                      <%= link_to "#" , class: "add-to-cart pull-left" do %>
-                      <i class="fa fa-shopping-cart"></i>
-                    <% end %>
                     <%= link_to product_path(pn), class: "beta-btn primary" do %>
                       <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
                     <% end %>
@@ -66,11 +63,11 @@
               </div>
               <div class="row">
               <% if @product_top.any? %>
-                <% @product_top.each do |pt| %>
+              <% @product_top.each do |pt| %>
                 <div class="col-sm-3" style="margin-bottom: 50px;">
                   <div class="single-item">
                     <div class="single-item-header">
-                      <%= link_to image_tag(pt.picture) %>
+                      <%= link_to image_tag(pt.picture.url, height: "197px", width: "263px") %>
                     </div>
                     <div class="single-item-body">
                       <p class="single-item-title"><%= pt.name %></p>
@@ -79,9 +76,6 @@
                       </p>
                     </div>
                     <div class="single-item-caption">
-                      <%= link_to "#" , class: "add-to-cart pull-left" do %>
-                      <i class="fa fa-shopping-cart"></i>
-                    <% end %>
                     <%= link_to product_path(pt), class: "beta-btn primary" do %>
                       <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
                     <% end %>

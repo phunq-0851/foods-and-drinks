@@ -10,7 +10,7 @@
         <div class="pull-right auto-width-right">
           <ul class="top-details menu-beta l-inline">
           <% if user_signed_in? %>
-            <li><%= link_to "#" do %><i class="fa fa-user"></i><%= current_user.email %><% end %></li>
+            <li><%= link_to edit_user_registration_path do %><i class="fa fa-user"></i><%= current_user.email %><% end %></li>
              <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-user"></i><%= t ".logout" %><% end %></li>
           <% else %>
             <li><a href="#"><i class="fa fa-user"></i><%= t ".account" %></a></li>
@@ -32,10 +32,10 @@
         <div class="pull-right beta-components space-left ov">
           <div class="space10">&nbsp;</div>
           <div class="beta-comp">
-            <form role="search" method="get" id="searchform" action="/">
-                  <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
-                  <button class="fa fa-search" type="submit" id="searchsubmit"></button>
-            </form>
+            <%= search_form_for @q, url: search_path , id: "searchform" do |f| %>
+              <%= f.text_field :name_or_describe_or_category_name_cont %>
+              <%= f.submit "Search" ,class: "btn btn-success" %>
+            <% end %>
           </div>
 
           <div class="beta-comp">
@@ -66,6 +66,13 @@
             </li>
             <li><%= link_to t(".about"), "#" %></li>
             <li><%= link_to t(".contact"), "#" %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to t(".history"), orders_path %></li>
+              <li><%= link_to t(".suggest"), new_suggest_path %></li>
+              <% if current_user.is_admin? %>
+                <li><%= link_to t(".admin"), rails_admin_path %></li>
+              <% end %>
+            <% end %>
           </ul>
           <div class="clearfix"></div>
         </nav>

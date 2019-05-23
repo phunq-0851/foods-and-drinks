@@ -3,5 +3,9 @@ jQuery(document).ready(function ($) {
   $('.alert').addClass('alert-success').text('<%= flash[:success] %>').slideDown();
   setTimeout(function() {
       $(".alert").fadeOut(2000);
-    }, 3000);
+    }, 2000);
+  $("#divCart").show();
+  $("#closeCart").click(function () {
+        $("#divCart").hide();
+    });
 });

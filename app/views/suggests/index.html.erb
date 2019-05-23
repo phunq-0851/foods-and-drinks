@@ -1,0 +1,66 @@
+<div class="inner-header">
+    <div class="container">
+      <div class="pull-left">
+        <h6 class="inner-title"><%= t ".history" %></h6>
+      </div>
+      <div class="pull-right">
+        <div class="beta-breadcrumb font-large">
+          <a href="index.html"><%= t ".home" %></a> / <span><%= t ".history" %></span>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="content">
+      <% flash.each do |key, value| %>
+    <div class="row text-center">
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+    </div>
+    <% end %>
+      <div class="table-responsive">
+        <% if @suggests.any? %>
+        <table class="shop_table beta-shopping-cart-table" cellspacing="0">
+          <thead>
+            <tr>
+              <th class="product-name"><%= t ".name" %></th>
+              <th class="product-price"><%= t ".describe" %></th>
+              <th class="product-quantity"><%= t ".created_at" %>.</th>
+              <th class="product-subtotal"><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @suggests.each do |su| %>
+            <tr class="cart_item">
+              <td class="product-name">
+                <div class="media">
+                    <p class="font-large table-title"><%= su.name %></p>
+                </div>
+              </td>
+              <td class="product-price">
+                <span class="amount"><%= su.describe %></span>
+              </td>
+              <td class="product-price">
+                <span class="amount"><%= su.created_at %></span>
+              </td>
+              <td class="product-subtotal">
+                <%= link_to suggest_path(su), method: :delete, data: {confirm: t(".sure")} do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                <% end %>
+                <%= link_to edit_suggest_path(su) do %>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @suggests, theme: 'twitter-bootstrap-3' %>
+        <% else %>
+          <p class="alert alert-danger"><%= t ".no-item" %></p>
+        <% end %>
+      </div>
+  </div>

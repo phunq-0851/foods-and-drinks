@@ -1,0 +1,30 @@
+<h2 class="text-center"><%= t ".suggest" %></h2>
+<h3 class="text-center"><%= link_to t(".history"), suggests_path %></h3>
+<% flash.each do |key, value| %>
+    <div class="row text-center">
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+    </div>
+<% end %>
+<div class="suggest text-center">
+  <%= form_for @suggest do |f| %>
+    <div class="row">
+      <div class="col-md-3">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+      <%= f.label :describe %>
+      <%= f.text_field :describe, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <%= f.submit "Submit", class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div>

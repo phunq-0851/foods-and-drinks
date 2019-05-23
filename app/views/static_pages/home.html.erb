@@ -3,7 +3,7 @@
     <div class="fullwidthbanner">
       <div class="bannercontainer" >
         <div class="banner" >
-          <%= image_tag "banner.jpg", width: "100%" %>
+          <%= image_tag "banner1.jpg", width: "100%" %>
         </div>
       </div>
 
@@ -21,7 +21,7 @@
             <div class="beta-products-list">
               <h4><%= t ".food" %></h4>
               <div class="beta-products-details">
-                <p class="pull-left"><%= @food_count %> styles found</p>
+                <p class="pull-left"><%= @food_product.size %> styles found</p>
                 <div class="clearfix"></div>
               </div>
 
@@ -31,7 +31,7 @@
                 <div class="col-sm-3" style="margin-bottom: 50px">
                   <div class="single-item">
                     <div class="single-item-header">
-                      <%= link_to image_tag(food.picture) %>
+                      <%= link_to image_tag(food.picture.url, height: "197px", width: "263px") %>
                     </div>
                     <div class="single-item-body">
                       <p class="single-item-title"><%= food.name %></p>
@@ -60,7 +60,7 @@
             <div class="beta-products-list">
               <h4><%= t  ".drink" %></h4>
               <div class="beta-products-details">
-                <p class="pull-left"><%= @drink_count %> <%= t ".found" %></p>
+                <p class="pull-left"><%= @drink_product.size %> <%= t ".found" %></p>
                 <div class="clearfix"></div>
               </div>
               <div class="row">
@@ -69,7 +69,7 @@
                 <div class="col-sm-3" style="margin-bottom: 50px">
                   <div class="single-item">
                     <div class="single-item-header">
-                      <%= link_to image_tag(drink.picture) %>
+                      <%= link_to image_tag(drink.picture.url, height: "197px", width: "263px") %>
                     </div>
                     <div class="single-item-body">
                       <p class="single-item-title"><%= drink.name %></p>

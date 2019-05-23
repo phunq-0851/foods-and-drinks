@@ -1,0 +1,75 @@
+<div class="inner-header">
+    <div class="container">
+      <div class="pull-left">
+        <h6 class="inner-title"><%= t ".order" %></h6>
+      </div>
+      <div class="pull-right">
+        <div class="beta-breadcrumb">
+          <a href="index.html"><%= t ".home" %></a> / <span><%= t ".order" %></span>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="container">
+  <div id="content">
+    <%= form_with url: orders_path, method: :post do |f| %>
+      <div class="row">
+        <div class="col-sm-6">
+          <h4><%= t ".order" %></h4>
+          <div class="space20">&nbsp;</div>
+
+          <div class="form-block">
+            <%= f.label :name %>
+            <%= f.text_field :name, required: :required %>
+          </div>
+          <div class="form-block">
+            <%= f.label :email %>
+            <%= f.text_field :email, required: :required %>
+          </div>
+          <div class="form-block">
+            <%= f.label :address %>
+            <%= f.text_field :address, required: :required %>
+          </div>
+          <div class="form-block">
+            <%= f.label :phone %>
+            <%= f.text_field :phone, required: :required %>
+            <%= f.hidden_field :total, value: total %>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="your-order">
+            <div class="your-order-head"><h5><%= t ".your-order" %></h5></div>
+            <div class="your-order-body" style="padding: 0px 10px">
+              <div class="your-order-item">
+                <div>
+                  <%  if @order_details.any? %>
+                  <% @order_details.each do |item| %>
+                  <div class="media">
+                    <%= image_tag item.product.picture.url, class: "pull-left", width: "150px" %>
+                    <div class="media-body">
+                      <p class="font-large"><%= item.product.name %></p>
+                      <span class="your-order-info"><%= t ".quantity" %> <%= item.quantity %></span>
+                    </div>
+                  </div>
+                  <% end %>
+                  <% end %>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="your-order-item">
+                <div class="pull-left"><p class="your-order-f18"><%= t ".total" %>:</p></div>
+                <div class="pull-right"><h5 class="color-black"><%= total %> <%= t ".vnd" %></h5></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="text-center">
+              <%= f.submit t(".order"), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
