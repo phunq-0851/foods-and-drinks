@@ -52,3 +52,22 @@ en:
       new:
         login: Login
         signup: Sign up
+  products:
+    show:
+      des: Description
+      review: Reviews
+      detail: Details
+      vnd: VND
+      relate: Related Products
+      best: Best Sellers
+      new: New Products
+      no-item: Not have product yet
+  category:
+    show:
+      no-item: Not have product yet
+      new: New Products
+      vnd: VND
+      detail: Details
+      top: Top Products
+      found: styles found
+      not-found: Not exists this category

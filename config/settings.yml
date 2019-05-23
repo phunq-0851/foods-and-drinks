@@ -5,3 +5,5 @@ paginate:
 category:
   food: 1
   drink: 2
+product:
+  limit: 6

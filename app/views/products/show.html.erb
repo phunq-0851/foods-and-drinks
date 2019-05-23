@@ -1,0 +1,121 @@
+<div class="container">
+    <div id="content">
+      <div class="row">
+      <% if @product %>
+        <div class="col-sm-9">
+
+          <div class="row">
+            <div class="col-sm-4">
+              <%= image_tag @product.picture %>
+            </div>
+            <div class="col-sm-8">
+              <div class="single-item-body">
+                <p class="single-item-title"><%= @product.name %></p>
+                <p class="single-item-price">
+                  <span><%= @product.price %> <%= t ".vnd" %></span>
+                </p>
+              </div>
+
+              <div class="space20">&nbsp;</div>
+
+              <div class="single-item-desc">
+                <p><%= @product.describe %></p>
+              </div>
+              <div class="space20">&nbsp;</div>
+              <div class="single-item-options">
+                <%= link_to "#", class: "add-to-cart" do %>
+                  <i class="fa fa-shopping-cart"></i>
+                <% end %>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space40">&nbsp;</div>
+          <div class="woocommerce-tabs">
+            <ul class="tabs">
+              <li><%= link_to t(".des"), "#tab-description" %></li>
+              <li><%= link_to t(".review"), "#tab-reviews" %></li>
+            </ul>
+
+            <div class="panel" id="tab-description">
+              <p><%= @product.describe %></p>
+            </div>
+            <div class="panel" id="tab-reviews">
+              <p>No Reviews</p>
+            </div>
+          </div>
+          <div class="space50">&nbsp;</div>
+          <div class="beta-products-list">
+            <h4><%= t ".relate" %></h4>
+
+            <div class="row">
+              <% if @relate_product.any? %>
+              <% @relate_product.each do |pr| %>
+              <div class="col-sm-4" style="margin-bottom: 50px">
+                <div class="single-item">
+                  <div class="single-item-header">
+                    <%= link_to image_tag(pr.picture) %>
+                  </div>
+                  <div class="single-item-body">
+                    <p class="single-item-title"><%= pr.name %></p>
+                    <p class="single-item-price">
+                      <span><%= pr.price %> <%= t ".vnd" %></span>
+                    </p>
+                  </div>
+                  <div class="single-item-caption">
+                    <%= link_to product_path(pr), class: "beta-btn primary" do %>
+                      <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <div class="col-sm-3 aside">
+          <div class="widget">
+            <h3 class="widget-title"><%= t ".best" %></h3>
+            <% if @top_product.any? %>
+            <% @top_product.each do |pt| %>
+            <div class="widget-body">
+              <div class="beta-sales beta-lists">
+                <div class="media beta-sales-item">
+                  <%= link_to image_tag(pt.picture) %>
+                  <div class="media-body">
+                    <%= pt.name %>
+                    <span class="beta-sales-price"><%= pt.price %> <%= t ".vnd" %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+            <% else %>
+            <span><%= t ".no-item" %></span>
+            <% end %>
+          </div> <!-- best sellers widget -->
+          <div class="widget">
+            <h3 class="widget-title"><%= t ".new" %></h3>
+            <% if @newest_product.any? %>
+            <% @newest_product.each do |pn| %>
+            <div class="widget-body">
+              <div class="beta-sales beta-lists">
+                <div class="media beta-sales-item">
+                  <%= link_to image_tag(pn.picture) %>
+                  <div class="media-body">
+                    <%= pn.name %>
+                    <span class="beta-sales-price"><%= pn.price %> <%= t ".vnd" %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
