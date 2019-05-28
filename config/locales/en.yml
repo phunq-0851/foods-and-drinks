@@ -1,33 +1,40 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  layouts:
+    header:
+      address: 90-92 Lê Thị Riêng, Bến Thành, Quận 1
+      phone: 0163 296 7751
+      account: Tài khoản
+      signup: Đăng kí
+      signin: Đăng nhập
+      cart: Giỏ hàng (Trống)
+      order: Đặt hàng
+      total: Tổng tiền
+      menu: Menu
+      home: Trang chủ
+      category: Sản phẩm
+      about: Giới thiệu
+      contact: Liên hệ
+    footer:
+      insta: Instagram Feed
+      infor: Information
+      design: Web Design
+      develop: Web development
+      market: Marketing
+      tip: Tips
+      resource: Resources
+      illus: Illustrations
+      contact: Contact us
+      south: 30 South Park Avenue San Francisco, CA 94108 Phone +78 123 456 78
+      des: Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.
+      subscribe: Newsletter Subscribe
+      sub: Subscribe
+      privacy: Privacy policy. (&copy;) 2014
+  static_pages:
+    home:
+      food: Food Products
+      drink: Drink Products
+      detail: Details
+      no_item: Khong co san pham
+      vnd: VND
+      found:  products found
+
