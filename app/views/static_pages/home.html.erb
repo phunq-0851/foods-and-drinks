@@ -40,10 +40,7 @@
                       </p>
                     </div>
                     <div class="single-item-caption">
-                      <%= link_to "#" , class: "add-to-cart pull-left" do %>
-                        <i class="fa fa-shopping-cart"></i>
-                      <% end %>
-                      <%= link_to "#", class: "beta-btn primary" do %>
+                      <%= link_to product_path(food), class: "beta-btn primary" do %>
                         <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
                       <% end %>
                       <div class="clearfix"></div>
@@ -81,10 +78,7 @@
                       </p>
                     </div>
                     <div class="single-item-caption">
-                      <%= link_to "#" , class: "add-to-cart pull-left" do %>
-                        <i class="fa fa-shopping-cart"></i>
-                      <% end %>
-                      <%= link_to "#", class: "beta-btn primary" do %>
+                      <%= link_to product_path(drink), class: "beta-btn primary" do %>
                         <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
                       <% end %>
                       <div class="clearfix"></div>

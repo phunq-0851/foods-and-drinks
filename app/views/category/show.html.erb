@@ -1,0 +1,103 @@
+<div class="inner-header">
+    <div class="container">
+      <div class="pull-left">
+        <h6 class="inner-title"><%= @category.name %></h6>
+      </div>
+      <div class="pull-right">
+        <div class="beta-breadcrumb font-large">
+          <%= link_to "Home", root_path %> / <span><%= @category.name %></span>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="content" class="space-top-none">
+      <div class="main-content">
+        <div class="space60">&nbsp;</div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="beta-products-list">
+              <h4><%= t ".new" %></h4>
+              <div class="beta-products-details">
+                <p class="pull-left"><%= @product_new.size %> <%= t ".found" %></p>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="row">
+              <% if @product_new.any? %>
+                <% @product_new.each do |pn| %>
+                <div class="col-sm-3" style="margin-bottom: 50px">
+                  <div class="single-item">
+                    <div class="single-item-header">
+                      <%= link_to image_tag(pn.picture) %>
+                    </div>
+                    <div class="single-item-body">
+                      <p class="single-item-title"><%= pn.name %></p>
+                      <p class="single-item-price">
+                        <span><%= pn.price %> <%= t ".vnd" %></span>
+                      </p>
+                    </div>
+                    <div class="single-item-caption">
+                      <%= link_to "#" , class: "add-to-cart pull-left" do %>
+                      <i class="fa fa-shopping-cart"></i>
+                    <% end %>
+                    <%= link_to product_path(pn), class: "beta-btn primary" do %>
+                      <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
+                    <% end %>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <% else %>
+              <span class="alert alert-danger"><%= t ".no-item" %></span>
+              <% end %>
+              </div>
+            </div> <!-- .beta-products-list -->
+
+            <div class="space50">&nbsp;</div>
+
+            <div class="beta-products-list">
+              <h4><%= t ".top" %></h4>
+              <div class="beta-products-details">
+                <p class="pull-left"><%= @product_top.size %> <%= t ".found" %></p>
+                <div class="clearfix"></div>
+              </div>
+              <div class="row">
+              <% if @product_top.any? %>
+                <% @product_top.each do |pt| %>
+                <div class="col-sm-3" style="margin-bottom: 50px;">
+                  <div class="single-item">
+                    <div class="single-item-header">
+                      <%= link_to image_tag(pt.picture) %>
+                    </div>
+                    <div class="single-item-body">
+                      <p class="single-item-title"><%= pt.name %></p>
+                      <p class="single-item-price">
+                        <span><%= pt.price %> <%= t ".vnd" %></span>
+                      </p>
+                    </div>
+                    <div class="single-item-caption">
+                      <%= link_to "#" , class: "add-to-cart pull-left" do %>
+                      <i class="fa fa-shopping-cart"></i>
+                    <% end %>
+                    <%= link_to product_path(pt), class: "beta-btn primary" do %>
+                      <%= t ".detail" %> <i class="fa fa-chevron-right"></i>
+                    <% end %>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <% else %>
+                <span class="alert alert-danger"><%= t ".no-item" %></span>
+              <% end %>
+              </div>
+              <div class="space40">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

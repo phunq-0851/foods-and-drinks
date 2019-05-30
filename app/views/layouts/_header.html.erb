@@ -100,11 +100,11 @@
         <div class="visible-xs clearfix"></div>
         <nav class="main-menu">
           <ul class="l-inline ov">
-            <li><%= link_to t(".home"), "#" %></li>
+            <li><%= link_to t(".home"), root_path %></li>
             <li><%= link_to t(".category") %>
               <ul class="sub-menu">
               <% category_names.each do |cat| %>
-                <li><%= link_to cat.name, "#" %></li>
+                <li><%= link_to cat.name, category_path(cat) %></li>
               <% end %>
               </ul>
             </li>

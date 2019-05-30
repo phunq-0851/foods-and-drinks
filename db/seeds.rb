@@ -25,3 +25,9 @@ end
 end
 
 User.create!(username: "Quang Phu", email: "quangphunguyen@gmail.com", password: "123456", password_confirmation: "123456", is_admin: true)
+
+Order.create!(user_id: 1, total: 100000, status: 1)
+OrderDetail.create!(order_id:1, product_id: 1, quantity: 3, price: 30000)
+OrderDetail.create!(order_id:1, product_id: 3, quantity: 5, price: 30000)
+OrderDetail.create!(order_id:1, product_id: 4, quantity: 8, price: 30000)
+OrderDetail.create!(order_id:1, product_id: 5, quantity: 9, price: 30000)
