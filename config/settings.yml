@@ -7,3 +7,5 @@ category:
   drink: 2
 product:
   limit: 6
+cart:
+  limit: 15

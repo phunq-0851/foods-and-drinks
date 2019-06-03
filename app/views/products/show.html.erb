@@ -1,10 +1,18 @@
 <div class="container">
     <div id="content">
       <div class="row">
+      <% flash.each do |key, value| %>
+      <div class="row">
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      </div>
+    <% end %>
       <% if @product %>
         <div class="col-sm-9">
 
           <div class="row">
+            <p class="alert"></p>
             <div class="col-sm-4">
               <%= image_tag @product.picture %>
             </div>
@@ -23,11 +31,18 @@
               </div>
               <div class="space20">&nbsp;</div>
               <div class="single-item-options">
-                <%= link_to "#", class: "add-to-cart" do %>
-                  <i class="fa fa-shopping-cart"></i>
-                <% end %>
+              <%= form_with url: carts_path, method: :post, remote: true do |f| %>
+                <%= f.label :quantity %>
+                <%= f.number_field :quantity, value: 1, class: "form-control" %>
+                <%= f.hidden_field :product_id, value: @product.id %>
+                <%= f.hidden_field :price, value: @product.price %>
+                <br>
+                <%= f.submit t(".addtocart"), class: "btn btn-success" %>
+              <% end %>
+
                 <div class="clearfix"></div>
               </div>
+
             </div>
           </div>
 
@@ -55,7 +70,7 @@
               <div class="col-sm-4" style="margin-bottom: 50px">
                 <div class="single-item">
                   <div class="single-item-header">
-                    <%= link_to image_tag(pr.picture) %>
+                    <%= link_to image_tag(pr.picture), product_path(pr) %>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title"><%= pr.name %></p>
@@ -84,7 +99,7 @@
             <div class="widget-body">
               <div class="beta-sales beta-lists">
                 <div class="media beta-sales-item">
-                  <%= link_to image_tag(pt.picture) %>
+                  <%= link_to image_tag(pt.picture), product_path(pt) %>
                   <div class="media-body">
                     <%= pt.name %>
                     <span class="beta-sales-price"><%= pt.price %> <%= t ".vnd" %></span>
@@ -104,7 +119,7 @@
             <div class="widget-body">
               <div class="beta-sales beta-lists">
                 <div class="media beta-sales-item">
-                  <%= link_to image_tag(pn.picture) %>
+                  <%= link_to image_tag(pn.picture), product_path(pn) %>
                   <div class="media-body">
                     <%= pn.name %>
                     <span class="beta-sales-price"><%= pn.price %> <%= t ".vnd" %></span>

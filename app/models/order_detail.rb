@@ -1,5 +1,6 @@
 class OrderDetail < ApplicationRecord
   belongs_to :product
+  delegate :name, :picture, to: :product, prefix: "product"
   validates :quantity, presence: true
   validates :price, presence:true, numericality: true
   scope :top_product, -> {group("product_id").order("sum(quantity) desc")
